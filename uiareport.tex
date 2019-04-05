@@ -1,0 +1,154 @@
+\documentclass[a4paper,twoside,11pt]{report}
+% Alternative Options:
+%	Paper Size: a4paper / a5paper / b5paper / letterpaper / legalpaper / executivepaper
+% Duplex: oneside / twoside
+% Base Font Size: 10pt / 11pt / 12pt
+
+
+%% Language %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[USenglish]{babel} %francais, polish, spanish, ...
+\usepackage[T1]{fontenc}
+\usepackage[ansinew]{inputenc}
+\usepackage{lmodern} %Type1-font for non-english texts and characters
+\usepackage{graphicx} %%For loading graphic files
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage[style=ieee]{biblatex}
+\addbibresource{literature.bib}
+\usepackage{csquotes}
+\usepackage{blindtext}
+\usepackage{parskip}
+\usepackage{hyperref}
+\usepackage{mathcomp}
+\usepackage{float}
+\usepackage{geometry}
+\usepackage{rotating}
+\usepackage{tikz}
+\usepackage{wrapfig}
+\usepackage{subcaption}
+\usepackage{pdfpages}
+
+%% Line Spacing %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\usepackage{setspace}
+%\singlespacing        %% 1-spacing (default)
+%\onehalfspacing       %% 1,5-spacing
+%\doublespacing        %% 2-spacing
+
+
+%% Other Packages %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\usepackage{a4wide} %%Smaller margins = more text per page.
+\usepackage{fancyhdr} %%Fancy headings
+%\usepackage{longtable} %%For tables, that exceed one page
+
+\usepackage{color}
+
+%Definer farger her
+
+\usepackage{titlesec}
+
+\titleformat{\chapter}[display]
+{\normalfont\huge\bfseries}{\chaptertitlename\ \thechapter}{20pt}{\Huge}
+
+
+% this alters "before" spacing (the second length argument) to 0
+\titlespacing*{\chapter}{0pt}{0pt}{10pt}
+\titlespacing*{\section}{0pt}{0pt}{-4pt}
+\titlespacing*{\subsection}{0pt}{0pt}{0pt}
+\titlespacing*{\subsubsection}{0pt}{0pt}{0pt}
+
+
+\definecolor{black}{rgb}{0,0,0}
+
+\parindent 0mm
+\setlength{\oddsidemargin}{0mm}
+\setlength{\evensidemargin}{0mm}
+\setlength{\topmargin}{-20mm}
+\setlength{\textwidth}{165mm}
+\setlength{\textheight}{260mm}
+\parskip 2em
+
+
+% Farger endres her %%%%%%%%%%%%%%%
+% Danner seg noene error meldinger her, de er ikke farlige bare irriterende ut fra det jeg kan se - Erlend %%%%%%%%%%%%%%%%%%%%%
+% \hypersetup{
+%   pdfauthor={UiA Renewable Student},
+%   pdftitle={ENE 228 Designing a fuel cell},
+%   colorlinks=true,
+  
+%   citecolor=black,
+%   urlcolor=black,
+%   linkcolor=black,
+% }
+
+\begin{document}
+
+
+
+\pagestyle{empty} %No headings for the first pages.
+\input{titlepage}
+
+\clearpage
+\pagenumbering{Roman}
+\chapter*{Acknowledgements}
+
+    A huge thanks to Peter Hugh Middleton for all the help we received during our project. 
+
+\clearpage
+\chapter*{Abstract}
+
+\clearpage
+\tableofcontents
+\listoffigures
+\listoftables
+\cleardoublepage %The first chapter should start on an odd page.
+\pagestyle{plain} %Now display headings: headings / fancy / ...
+
+\clearpage
+\pagenumbering{arabic}
+
+\chapter{Introduction}
+    \input{Introduction.tex}
+
+\chapter{Theory on PEM fuel cell}
+    \input{Theoryon.tex}
+    
+
+\chapter{Methods in... }
+    \input{Methods.tex}
+    
+\chapter{Results on ...}
+    \input{Results.tex}
+
+
+
+\chapter{Discussions}
+    \input{Discussion.tex}
+
+\chapter{Conclusions}
+
+\nocite{*}
+
+\begin{appendix}
+    \chapter{Housing drawing}
+        \input{HousingDrawing.tex}
+
+    \chapter{Tables}
+        \input{Tables.tex}
+        
+    \chapter{3D Printers}
+        \input{3Dprinters.tex}
+        
+    \chapter{PLA filament}
+        \input{PLA.tex}
+        
+\end{appendix}
+
+\printbibliography[
+heading=bibintoc,
+title={Bibliography}
+]
+
+
+\end{document}
+
